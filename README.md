@@ -1,14 +1,16 @@
-# ROCM 5.7, PyTorch 2.3, torchvision 0.18 with AMD GFX803 aka AMD Polaris aka AMD RX570/RX580/RX590
+# ROCm 5.7, PyTorch 2.3, Torchvision 0.18 with AMD GFX803 aka AMD Polaris aka AMD RX570/RX580/RX590
 
-This repo provides a docker buildfile based on the original Rocm dockerimage to compile pyTorch and torchvision for the AMD RX570/RX580/RX590 generation. pyTorch and Torchvision are not compiled for the GPU-Polaris generation in the original PIP repository. However, if Polaris GPU support is to be used in ComfyUI or A1111 StableDiffusion, there is no getting around newly compiled pyTorch and Torvision whl/wheel python files.
+This repo provides a docker buildfile based on the original ROCm Dockerimage to compile PyTorch and Torchvision for the AMD RX570/RX580/RX590 generation. PyTorch and Torchvision are not compiled to use the GPU-Polaris generation in the original PIP repository. However, if Polaris GPU support is to be used in ComfyUI or A1111 StableDiffusion, there is no way around newly compiled pyTorch and Torvision whl/wheel python files. That what this Docker Buildfile will do for you.
 
 ## ROCm-5.7.0 in a Dockerfile
 
-|OS            |linux|Python|ROCm |GPU  |
-|--------------|-----|------|-----|-----|
-|Ubuntu-22.04.2|5.19 |3.10.10|5.7.0|RX570 aka Polaris|
+|OS            |linux|Python|ROCm |PyTorch|Torchvision|GPU|
+|--------------|-----|------|-----|-----|-----|-----|
+|Ubuntu-22.04.2|5.19 |3.10.10|5.7.0|2.3.0|0.18.0|RX570 aka Polaris|
 
-<https://github.com/xuhuisheng/rocm-gfx803/releases/tag/rocm541>
+* <https://github.com/xuhuisheng/rocm-gfx803/releases/tag/rocm541>
+* PyTorch GIT: <https://github.com/pytorch/pytorch>
+* Torchvison GIT: 
 
 Install ROCm First <https://docs.amd.com/bundle/ROCm-Installation-Guide-v5.4.1/page/Introduction_to_ROCm_Installation_Guide_for_Linux.html>
 
