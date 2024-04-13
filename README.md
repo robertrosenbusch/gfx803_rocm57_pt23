@@ -12,17 +12,12 @@ This repo provides a docker buildfile based on the original ROCm Dockerimage to 
 * PyTorch GIT: <https://github.com/pytorch/pytorch>
 * Torchvison GIT: <https://github.com/pytorch/vision>
 
-It is _not_ necessary to install the entire rocm stack on the host system. _Until_ you wanna use smth to tweak via rocm-smi. In my case i need to reduce the powerconsumption up to 145 Watt via "rocm-smi --setpoweroverdrive 140 && watch -n2 rocm-smi"
+- It is _not_ necessary to install the entire rocm stack on the host system. _Until_ you wanna use something to tweak your GPU via rocm-smi. then you are use the "" In my case i need the rocm stuff to reduce the power consumption on my RX570-GPU up to 145 Watt via "rocm-smi --setpoweroverdrive 145 && watch -n2 rocm-smi"
   
 
 1. install docker / docker.io on your linux system
-2. download the last file version of this github
+2. download the latest file version of this github
 3. build your dockerfile via 
 4. run the  
 6. `pip3 install tensorflow_rocm-2.8.0-cp38-cp38-linux_x86_64.whl`
 
-PS: You may need `export LD_LIBRARY_PATH=/opt/rocm/lib` to resolve cannot find libmiopen.so error.
-
-2. `export LB_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/rocm/hip/lib`
-3. `pip3 install torch-1.7.0a0-cp38-cp38-linux_x86_64.whl`
-4. `pip3 install torchvision-0.8.0a0+2f40a48-cp38-cp38-linux_x86_64.whl`
