@@ -17,7 +17,7 @@ This repo provides a docker buildfile based on the original ROCm-Dockerimage to 
 
 1. install the docker-subsystem / docker.io on your linux system
 2. download the latest file version of this github
-3. build your Docker image via `docker build . -t 'rocm57_pt23_comfyui:v1'`
-4. 
-6. `pip3 install tensorflow_rocm-2.8.0-cp38-cp38-linux_x86_64.whl`
-
+3. build your Docker image via `docker build . -t 'rocm57_pt23:v1'`
+4. start the container via `docker run -it --device=/dev/kfd --device=/dev/dri --group-add video rocm57_pt23:v1 -p 8188:8188'
+6. install ComfyUI and download a Model or map an Directory on your Host-Computer
+7. After installing _reinstall_ pytorch and torchvision wheels into your ComfyUI-Python-Environment. you find the Polaris compiled Python-Wheel-Files into the "/pytorch/dist" and "/torchvision/dist" Directory
