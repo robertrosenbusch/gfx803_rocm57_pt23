@@ -20,4 +20,4 @@ This repo provides a docker buildfile based on the original ROCm-Dockerimage to 
 3. build your Docker image via `docker build . -t 'rocm57_pt23:v1'`
 4. start the container via `docker run -it --device=/dev/kfd --device=/dev/dri --group-add video rocm57_pt23:v1 -p 8188:8188'
 6. install ComfyUI and download a Model or map an Directory on your Host-Computer
-7. After installing _reinstall_ pytorch and torchvision wheels into your ComfyUI-Python-Environment. you find the Polaris compiled Python-Wheel-Files into the "/pytorch/dist" and "/torchvision/dist" Directory
+7. After installing ComfyUI _reinstall_ pytorch and torchvision wheels into your ComfyUI-Python-Environment. you find the Polaris compiled Python-Wheel-Files into the "/pytorch/dist" and "/torchvision/dist" Directory
