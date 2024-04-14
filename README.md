@@ -8,11 +8,10 @@ This repo provides a docker buildfile based on the original ROCm-Dockerimage to 
 |--------------|-----|------|-----|-----|-----|-----|
 |Ubuntu-22.04.2|5.19 |3.10.10|5.7.0|2.3.0|0.18.0|RX570/580/590 aka Polaris 20/21 aka GCN 4|
 
-* Used ROCm Docker Version:[fooosel](https://hub.docker.com/layers/rocm/pytorch/rocm5.7_ubuntu22.04_py3.10_pytorch_2.0.1/images/sha256-21df283b1712f3d73884b9bc4733919374344ceacb694e8fbc2c50bdd3e767ee)     
+* Used ROCm Docker Version:[Ubuntu 22.04+ROCm5.7+Python3.10](https://hub.docker.com/layers/rocm/pytorch/rocm5.7_ubuntu22.04_py3.10_pytorch_2.0.1/images/sha256-21df283b1712f3d73884b9bc4733919374344ceacb694e8fbc2c50bdd3e767ee)     
 
-<https://hub.docker.com/layers/rocm/pytorch/rocm5.7_ubuntu22.04_py3.10_pytorch_2.0.1/images/sha256-21df283b1712f3d73884b9bc4733919374344ceacb694e8fbc2c50bdd3e767ee>
-* PyTorch GIT: <https://github.com/pytorch/pytorch>
-* Torchvison GIT: <https://github.com/pytorch/vision>
+* PyTorch GIT: [v2.2.2] (https://github.com/pytorch/pytorch)
+* Torchvison GIT: [v0.18.0] (https://github.com/pytorch/vision)
 
 - It is _not_ necessary to install the entire ROCm-Stack on the host system. _Unless_ you want to use something to optimize your GPU via rocm-smi. In my case, I need the rocm stuff to reduce the power consumption of my RX570 GPU to 145 watts with "rocm-smi --setpoweroverdrive 145 && watch -n2 rocm-smi" every time I restart the container.
 
