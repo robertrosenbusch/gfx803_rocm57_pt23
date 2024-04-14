@@ -17,7 +17,7 @@ This repo provides a docker buildfile based on the original ROCm-Dockerimage to 
 
 1. install the docker-subsystem / docker.io on your linux system
 2. download the latest file version of this github
-3. build your Docker image via `docker build . -t 'rocm57_pt23_comfyui:v1'` 
-4 v. run the  
+3. build your Docker image via `docker build . -t 'rocm57_pt23_comfyui:v1'`
+4. 
 6. `pip3 install tensorflow_rocm-2.8.0-cp38-cp38-linux_x86_64.whl`
 
