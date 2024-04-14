@@ -13,7 +13,7 @@ This repo provides a docker buildfile based on the original ROCm-Dockerimage to 
 * PyTorch GIT: [v2.2.2](https://github.com/pytorch/pytorch)
 * Torchvison GIT: [v0.18.0](https://github.com/pytorch/vision)
 
-- It is _not_ necessary to install the entire ROCm-Stack on the host system. _Unless_ you want to use something to optimize your GPU via rocm-smi. In my case, I need the rocm stuff to reduce the power consumption of my RX570 GPU to 145 watts with "rocm-smi --setpoweroverdrive 145 && watch -n2 rocm-smi" every time I restart the container.
+- It is _not_ necessary to install the entire ROCm-Stack on the host system. _Unless_ you want to use something to optimize your GPU via rocm-smi. In my case, I need the rocm stuff to reduce the power consumption of my RX570 GPU to 145 watts with `rocm-smi --setpoweroverdrive 145 && watch -n2 rocm-smi` every time I restart the container.
 
 1. install docker / docker.io on your linux system
 2. download the latest file version of this github
