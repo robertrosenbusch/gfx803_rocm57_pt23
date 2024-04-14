@@ -8,7 +8,7 @@ This repo provides a docker buildfile based on the original ROCm-Dockerimage to 
 |--------------|-----|------|-----|-----|-----|-----|
 |Ubuntu-22.04.2|5.19 |3.10.10|5.7.0|2.3.0|0.18.0|RX570/580/590 aka Polaris 20/21 aka GCN 4|
 
-* Used ROCm Docker Version:[fooosel][https://hub.docker.com/layers/rocm/pytorch/rocm5.7_ubuntu22.04_py3.10_pytorch_2.0.1/images/sha256-21df283b1712f3d73884b9bc4733919374344ceacb694e8fbc2c50bdd3e767ee]     
+* Used ROCm Docker Version:[fooosel](https://hub.docker.com/layers/rocm/pytorch/rocm5.7_ubuntu22.04_py3.10_pytorch_2.0.1/images/sha256-21df283b1712f3d73884b9bc4733919374344ceacb694e8fbc2c50bdd3e767ee)     
 
 <https://hub.docker.com/layers/rocm/pytorch/rocm5.7_ubuntu22.04_py3.10_pytorch_2.0.1/images/sha256-21df283b1712f3d73884b9bc4733919374344ceacb694e8fbc2c50bdd3e767ee>
 * PyTorch GIT: <https://github.com/pytorch/pytorch>
