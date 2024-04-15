@@ -43,7 +43,7 @@ RUN export ${MAX_JOB} && \
 
 # Update System and install ffmpeg for SDXL video and python virtual Env
 RUN apt-get -y update && \
-    apt-get install -y --no-install-recommends ffmpeg virtualenv && \
+    apt-get install -y --no-install-recommends ffmpeg virtualenv google-perftools && \
     pip install --upgrade pip wheel && \
     pip install cmake mkl mkl-include && \ 
     true
