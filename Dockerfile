@@ -21,7 +21,7 @@ ENV PORT=8188 \
 
 ## Write the Environment VARSs to global... to compile later with while you use #docker save# or #docker commit#
 RUN echo MAX_JOB=${MAX_JOB} >> /etc/environment && \ 
-    echo HSA_OVERRIDE_GFX_VERSION=${HSA_OVERRIDE_GFX_VERSION} >> /etc/environment \ 
+    echo HSA_OVERRIDE_GFX_VERSION=${HSA_OVERRIDE_GFX_VERSION} >> /etc/environment && \ 
     echo ROC_ENABLE_PRE_VEGA=${ROC_ENABLE_PRE_VEGA} >> /etc/environment && \
     echo USE_CUDA=${USE_CUDA} >> /etc/environment && \
     echo USE_ROCM=${USE_ROCM} >> /etc/environment && \
@@ -37,8 +37,6 @@ RUN export ${MAX_JOB} && \
     export USE_ROCM=${USE_ROCM}  && \
     export USE_NINJA=${USE_NINJA} && \
     export FORCE_CUDA=${FORCE_CUDA} && \
-    export ROC_ENABLE_PRE_VEGA=${ROC_ENABLE_PRE_VEGA} && \
-    export HSA_OVERRIDE_GFX_VERSION=${HSA_OVERRIDE_GFX_VERSION} && \
     true
 
 # Update System and install ffmpeg for SDXL video and python virtual Env
