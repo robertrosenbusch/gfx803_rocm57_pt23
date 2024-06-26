@@ -7,6 +7,8 @@ ENV PORT=8188 \
     ### Settings for AMD GPU RX570/RX580/RX590 GPU
     HSA_OVERRIDE_GFX_VERSION=8.0.3 \ 
     PYTORCH_ROCM_ARCH=gfx803 \
+    ROCM_ARCH=gfx803 \ 
+    TORCH_BLAS_PREFER_HIPBLASLT=0\ 
     ROC_ENABLE_PRE_VEGA=1 \
     USE_CUDA=0 \  
     USE_ROCM=1 \ 
@@ -20,8 +22,11 @@ ENV PORT=8188 \
     COMMANDLINE_ARGS='' 
 
 ## Write the Environment VARSs to global... to compile later with while you use #docker save# or #docker commit#
-RUN echo MAX_JOB=${MAX_JOB} >> /etc/environment && \ 
+RUN echo MAX_JOBS=${MAX_JOBS} >> /etc/environment && \ 
     echo HSA_OVERRIDE_GFX_VERSION=${HSA_OVERRIDE_GFX_VERSION} >> /etc/environment && \ 
+    echo PYTORCH_ROCM_ARCH=${PYTORCH_ROCM_ARCH} >> /etc/environment && \ 
+    echo ROCM_ARCH=${ROCM_ARCH} >> /etc/environment && \ 
+    echo TORCH_BLAS_PREFER_HIPBLASLT=${TORCH_BLAS_PREFER_HIPBLASLT} >> /etc/environment && \ 
     echo ROC_ENABLE_PRE_VEGA=${ROC_ENABLE_PRE_VEGA} >> /etc/environment && \
     echo USE_CUDA=${USE_CUDA} >> /etc/environment && \
     echo USE_ROCM=${USE_ROCM} >> /etc/environment && \
@@ -30,9 +35,12 @@ RUN echo MAX_JOB=${MAX_JOB} >> /etc/environment && \
     true
 
 ## Export the AMD Stuff
-RUN export ${MAX_JOB} && \ 
-    export ROC_ENABLE_PRE_VEGA=${ROC_ENABLE_PRE_VEGA} && \
+RUN export MAX_JOBS=${MAX_JOBS} && \ 
     export HSA_OVERRIDE_GFX_VERSION=${HSA_OVERRIDE_GFX_VERSION} && \
+    export ROC_ENABLE_PRE_VEGA=${ROC_ENABLE_PRE_VEGA} && \
+    export PYTORCH_ROCM_ARCH=${PYTORCH_ROCM_ARCH} && \
+    export ROCM_ARCH=${ROCM_ARCH} && \
+    export TORCH_BLAS_PREFER_HIPBLASLT=${TORCH_BLAS_PREFER_HIPBLASLT} && \    
     export USE_CUDA=${USE_CUDA}  && \
     export USE_ROCM=${USE_ROCM}  && \
     export USE_NINJA=${USE_NINJA} && \
@@ -41,7 +49,7 @@ RUN export ${MAX_JOB} && \
 
 # Update System and install ffmpeg for SDXL video and python virtual Env
 RUN apt-get -y update && \
-    apt-get install -y --no-install-recommends ffmpeg virtualenv google-perftools && \
+    apt-get install -y --no-install-recommends ffmpeg virtualenv google-perftools tmux mc pigz && \
     pip install --upgrade pip wheel && \
     pip install cmake mkl mkl-include && \ 
     true
@@ -91,12 +99,6 @@ RUN export BUILD_VERSION=$(git describe --tags --exact | sed 's/^v//')  && \
     python3 setup.py bdist_wheel && \
     pip install dist/torchvision-*-cp310-cp310-linux_x86_64.whl && \
     true
-
-
-## Personal Stuff to handle docker better        
-RUN apt-get install -y --no-install-recommends tmux mc pigz && \
-    true
-
 
 EXPOSE ${PORT}
 EXPOSE 22/tcp
